@@ -336,7 +336,7 @@ struct ssv_softc
 	bool force_triger_reset;
 	unsigned long sdio_throughput_timestamp;
 	unsigned long sdio_rx_evt_size;
-	struct ieee80211_supported_band sbands[IEEE80211_NUM_BANDS];
+	struct ieee80211_supported_band sbands[NUM_NL80211_BANDS];
 	struct ieee80211_channel *cur_channel;
 	u16 hw_chan;
 	struct mutex mutex;
