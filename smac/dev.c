@@ -811,7 +811,7 @@ static u32 ssv6xxx_set_frame_duration(struct ieee80211_tx_info *info,
 						       is_sgi, is_gf);
 			d_phy = 0;
 		} else {
-			if ((info->band == IEEE80211_BAND_2GHZ) &&
+			if ((info->band == NL80211_BAND_2GHZ) &&
 			    !(ssv_rate->d_flags & IEEE80211_RATE_ERP_G))
 				d_phy = WLAN_RC_PHY_CCK;
 			else
@@ -819,7 +819,7 @@ static u32 ssv6xxx_set_frame_duration(struct ieee80211_tx_info *info,
 			frame_time = ssv6xxx_non_ht_txtime(
 			    d_phy, drate_kbps, len, ctrl_short_preamble);
 		}
-		if ((info->band == IEEE80211_BAND_2GHZ) &&
+		if ((info->band == NL80211_BAND_2GHZ) &&
 		    !(ssv_rate->c_flags & IEEE80211_RATE_ERP_G))
 			c_phy = WLAN_RC_PHY_CCK;
 		else
