@@ -1510,9 +1510,9 @@ void ssv6xxx_rc_mac8011_rate_idx(struct ssv_softc *sc,
         hw_rate_idx < 0);
     rc_rate = &ssv_rc->rc_table[hw_rate_idx];
     if (rc_rate->rc_flags & RC_FLAG_HT) {
-        rxs->flag |= RX_FLAG_HT;
+        rxs->flag |= RX_FLAG_AMPDU_DETAILS;
         if (rc_rate->rc_flags & RC_FLAG_HT_SGI)
-            rxs->flag |= RX_FLAG_SHORT_GI;
+            rxs->flag |= RX_FLAG_DUP_VALIDATED;
     }
     else {
         if (rc_rate->rc_flags & RC_FLAG_SHORT_PREAMBLE)
