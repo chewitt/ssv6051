@@ -851,7 +851,7 @@ static int _do_tx (struct ssv6xxx_hci_ctrl *hctl, u32 status)
 irqreturn_t ssv6xxx_hci_isr(int irq, void *args)
 {
  struct ssv6xxx_hci_ctrl *hctl = args;
- u32 status;
+ u32 status = 0;
  int ret = IRQ_HANDLED;
  bool dbg_isr_miss = true;
 #ifdef CONFIG_SSV6XXX_DEBUGFS

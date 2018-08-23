@@ -449,7 +449,7 @@ void ssv6xxx_watchdog_restart_hw(struct ssv_softc *sc)
 #ifdef CONFIG_SSV_RSSI
 extern struct rssi_res_st rssi_res;
 #endif
-void ssv6200_watchdog_timeout(unsigned long arg)
+void ssv6200_watchdog_timeout(struct timer_list *arg)
 {
 #ifdef CONFIG_SSV_RSSI
     static u32 count=0;
@@ -644,10 +644,7 @@ static int ssv6xxx_init_softc(struct ssv_softc *sc)
     skb_queue_head_init(&sc->rx_skb_q);
     sc->rx_task = kthread_run(ssv6xxx_rx_task, sc, "ssv6xxx_rx_task");
     ssv6xxx_preload_sw_cipher();
-    init_timer(&sc->watchdog_timeout);
     sc->watchdog_timeout.expires = jiffies + 20*HZ;
-    sc->watchdog_timeout.data = (unsigned long)sc;
-    sc->watchdog_timeout.function = ssv6200_watchdog_timeout;
     init_waitqueue_head(&sc->fw_wait_q);
 #ifdef CONFIG_SSV_RSSI
     INIT_LIST_HEAD(&rssi_res.rssi_list);
