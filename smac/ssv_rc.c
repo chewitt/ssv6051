@@ -1516,7 +1516,7 @@ void ssv6xxx_rc_mac8011_rate_idx(struct ssv_softc *sc,
     }
     else {
         if (rc_rate->rc_flags & RC_FLAG_SHORT_PREAMBLE)
-            rxs->flag |= RX_FLAG_SHORTPRE;
+            rxs->flag |= RX_ENC_FLAG_SHORTPRE;
     }
     rxs->rate_idx = rc_rate->dot11_rate_idx;
 }
