@@ -32,7 +32,7 @@
 #else
 #include <config/printk.h>
 #endif
-#include <linux/amlogic/aml_thermal_hw.h>
+//#include <linux/amlogic/aml_thermal_hw.h>
 extern void sdio_reinit(void);
 extern void extern_wifi_set_enable(int is_on);
 extern int ssv6xxx_get_dev_status(void);
@@ -58,6 +58,7 @@ extern int max_aggr_num;
 static int aml_cpufreq_notifier(struct notifier_block *nb,
                                          unsigned long event, void *data)
 {
+ /*
         struct cpufreq_freqs *frq = data;
  int cpu_temp;
  if((int)frq->cpu != 0 || (int)event == CPUFREQ_TRANSITION_NOTIFIER)
@@ -70,6 +71,7 @@ static int aml_cpufreq_notifier(struct notifier_block *nb,
  printk(KERN_INFO "SSV set max_aggr_num : %d\n",max_aggr_num);
  printk(KERN_INFO "SSV get temp : cur_temp = %d\n",cpu_temp);
  printk(KERN_INFO "event=%d, cpu=%d, old =%d, new = %d\n", (int)event, (int)frq->cpu, (int)frq->old, (int)frq->new);
+ */
         return 0;
 }
 static struct notifier_block aml_cpufreq_notifier_block = {

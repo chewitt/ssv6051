@@ -282,7 +282,11 @@ int ssv6xxx_read_fw_block(char *buf, int len, void *image)
  int rdlen;
  if (!image)
   return 0;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
  rdlen = kernel_read(fp, fp->f_pos, buf, len);
+#else
+ rdlen = kernel_read(fp, buf, len, &fp->f_pos);
+#endif
  if (rdlen > 0)
   fp->f_pos += rdlen;
  return rdlen;
