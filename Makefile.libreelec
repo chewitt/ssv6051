@@ -41,6 +41,7 @@ KERN_SRCS += smac/sec_wpi.c
 KERN_SRCS += smac/efuse.c
 KERN_SRCS += smac/ssv_pm.c
 KERN_SRCS += smac/sar.c
+KERN_SRCS += smac/ssv_cfgvendor.c
 
 ifeq ($(findstring -DCONFIG_SSV_SMARTLINK, $(ccflags-y)), -DCONFIG_SSV_SMARTLINK)
 KERN_SRCS += smac/smartlink.c
